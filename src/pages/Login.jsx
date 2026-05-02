@@ -54,7 +54,7 @@ const AuthPage = () => {
     <div style={{ minHeight: '100vh', background: '#0a0a0a', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px', fontFamily: 'Inter, sans-serif' }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <div style={{ width: '64px', height: '64px', background: '#22c55e', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '32px', margin: '0 auto 16px' }}>🔗</div>
-        <h1 style={{ color: 'white', fontSize: '28px', fontWeight: '800', marginBottom: '6px' }}>URL Shortener</h1>
+        <h1 style={{ color: 'white', fontSize: '28px', fontWeight: '800', marginBottom: '6px' }}>Lynkify</h1>
         <p style={{ color: '#6b7280', fontSize: '14px' }}>Shorten links. Track clicks. Grow your brand.</p>
       </div>
 

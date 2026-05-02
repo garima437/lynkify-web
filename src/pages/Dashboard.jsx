@@ -79,7 +79,7 @@ const Dashboard = () => {
       <div style={{ background: '#111111', borderBottom: '1px solid #1f1f1f', padding: '16px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div style={{ width: '36px', height: '36px', background: '#22c55e', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px' }}>🔗</div>
-          <span style={{ color: 'white', fontWeight: '800', fontSize: '18px' }}>URL Shortener</span>
+          <span style={{ color: 'white', fontWeight: '800', fontSize: '18px' }}>Lynkify</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <span style={{ color: '#6b7280', fontSize: '14px' }}>👋 {user.name}</span>
@@ -126,10 +126,26 @@ const Dashboard = () => {
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <p style={{ color: '#22c55e', fontWeight: '700', fontSize: '15px', marginBottom: '4px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{url.shortUrl}</p>
                     <p style={{ color: '#6b7280', fontSize: '13px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{url.originalUrl}</p>
-                    <div style={{ display: 'flex', gap: '12px', marginTop: '8px' }}>
-                      <span style={{ color: '#6b7280', fontSize: '12px' }}>👆 {url.clickCount} clicks</span>
-                      {url.expiresAt && <span style={{ color: '#6b7280', fontSize: '12px' }}>⏰ {new Date(url.expiresAt).toLocaleDateString()}</span>}
-                    </div>
+                    <div style={{ display: 'flex', gap: '12px', marginTop: '8px', alignItems: 'center' }}>
+  <span style={{ color: '#6b7280', fontSize: '12px' }}>👆 {url.clickCount} clicks</span>
+  {url.expiresAt && (
+    <span style={{ color: '#6b7280', fontSize: '12px' }}>
+      ⏰ {new Date(url.expiresAt).toLocaleDateString()}
+    </span>
+  )}
+  {url.expiresAt && new Date(url.expiresAt) < new Date() && (
+    <span style={{
+      background: '#ef4444',
+      color: 'white',
+      fontSize: '11px',
+      padding: '2px 8px',
+      borderRadius: '4px',
+      fontWeight: '700'
+    }}>
+      EXPIRED
+    </span>
+  )}
+</div>
                   </div>
                   <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                     <button onClick={() => handleCopy(url.shortUrl)} style={btnOutline}>📋 Copy</button>
